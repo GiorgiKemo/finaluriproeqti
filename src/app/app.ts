@@ -22,25 +22,6 @@ export class App implements OnInit {
 
   ngOnInit() {
     this.cartItemCount$ = this.cartService.cartItemCount$;
-    this.clearPhantomItems();
-  }
-
-  clearPhantomItems() {
-    this.api.getBasket().subscribe(basketItems => {
-      const phantomItem = basketItems.find(item => item.product.name === 'Laab kai chicken salad');
-      if (phantomItem) {
-        const phantomItemId = phantomItem.id;
-        for (let i = 0; i < 10; i++) {
-          this.api.deleteProduct(phantomItemId).subscribe({
-            next: () => {},
-            error: () => {}
-          });
-        }
-        setTimeout(() => {
-          this.cartService.loadCart();
-        }, 2000);
-      }
-    });
   }
 
   @HostListener('window:scroll', [])

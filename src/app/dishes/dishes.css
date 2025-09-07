@@ -169,3 +169,24 @@
 .product-card button:hover {
   background-color: #cc0000;
 }
+
+@media (max-width: 768px) {
+  .main-content {
+    flex-direction: column;
+  }
+
+  .filters {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  .product-card {
+    width: calc((100% - 20px) / 2);
+  }
+}
+
+@media (max-width: 480px) {
+  .product-card {
+    width: 100%;
+  }
+}

@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular/build:application",
           "options": {
-            "outputPath": "docs",
+            "outputPath": "dist/online-restaurant/browser",
             "browser": "src/main.ts",
             "polyfills": [
               "zone.js"
@@ -23,7 +23,8 @@
               {
                 "glob": "**/*",
                 "input": "public"
-              }
+              },
+              "src/404.html"
             ],
             "styles": [
               "src/styles.css"
@@ -90,7 +91,8 @@
         "deploy": {
           "builder": "angular-cli-ghpages:deploy",
           "options": {
-            "baseHref": "/SafinaloProeqti/"
+            "baseHref": "/finaluriproeqti/",
+            "dir": "dist/online-restaurant/browser"
           }
         }
       }

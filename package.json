@@ -6,7 +6,8 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "deploy": "ng build --configuration production --base-href /finaluriproeqti/ && copy dist\\online-restaurant\\browser\\browser\\index.html dist\\online-restaurant\\browser\\browser\\404.html && npx angular-cli-ghpages --dir=dist/online-restaurant/browser/browser"
   },
   "prettier": {
     "printWidth": 100,

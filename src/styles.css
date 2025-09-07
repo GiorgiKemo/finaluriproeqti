@@ -28,7 +28,6 @@ header.scrolled {
 }
 
 nav {
-  display: flex;
 }
 
 nav a {
@@ -71,4 +70,32 @@ nav a.active {
 
 .hero h1 {
   font-size: 48px;
+}
+
+@media (max-width: 768px) {
+  header {
+    padding: 10px;
+  }
+
+  .logo {
+    font-size: 20px;
+  }
+
+  .hero {
+    height: 300px;
+  }
+
+  .hero h1 {
+    font-size: 36px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero {
+    height: 200px;
+  }
+
+  .hero h1 {
+    font-size: 24px;
+  }
 }

@@ -49,14 +49,44 @@ nav a {
   font-weight: bold;
 }
 
+.hamburger {
+  display: none;
+  font-size: 24px;
+  cursor: pointer;
+}
+
 @media (max-width: 768px) {
+  header {
+    background-color: #333;
+  }
+
+  .hamburger {
+    display: block;
+    order: 2;
+  }
+
+  nav {
+    order: 1;
+  }
+
   nav ul {
+    display: none;
+    position: absolute;
+    top: 50px;
+    left: 0;
+    width: 100%;
+    background-color: #333;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
+    padding: 10px 0;
+  }
+
+  nav.open ul {
+    display: flex;
   }
 
   nav li {
+    margin: 10px 0;
     margin-left: 0;
-    margin-bottom: 10px;
   }
 }

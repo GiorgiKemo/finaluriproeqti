@@ -1,10 +1,10 @@
 <header [ngClass]="{'scrolled': isScrolled}">
   <div class="logo">Savory Bites</div>
-  <nav>
+  <nav [class.open]="isMenuOpen">
     <ul>
-      <li><a routerLink="/dishes" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Home</a></li>
+      <li><a routerLink="/dishes" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" (click)="toggleMenu()">Home</a></li>
       <li>
-        <a routerLink="/cart" routerLinkActive="active" class="cart-link">
+        <a routerLink="/cart" routerLinkActive="active" class="cart-link" (click)="toggleMenu()">
           <span>Cart</span>
           <div class="cart-icon-container">
             <img src="https://img.icons8.com/ios-filled/50/ffffff/shopping-cart.png" alt="Cart" class="cart-icon">
@@ -14,6 +14,9 @@
       </li>
     </ul>
   </nav>
+  <div class="hamburger" (click)="toggleMenu()">
+    &#9776;
+  </div>
 </header>
 
 <main>

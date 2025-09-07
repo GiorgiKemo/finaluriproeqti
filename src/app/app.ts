@@ -17,6 +17,7 @@ export class App implements OnInit {
   title = 'Savory Bites';
   isScrolled = false;
   cartItemCount$: Observable<number> | undefined;
+  isMenuOpen = false;
 
   constructor(private cartService: CartService, private api: Api) {}
 
@@ -27,5 +28,9 @@ export class App implements OnInit {
   @HostListener('window:scroll', [])
   onWindowScroll() {
     this.isScrolled = window.scrollY > 50;
+  }
+
+  toggleMenu() {
+    this.isMenuOpen = !this.isMenuOpen;
   }
 }

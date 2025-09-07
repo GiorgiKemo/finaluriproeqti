@@ -31,6 +31,14 @@
   border-bottom: 2px solid red;
 }
 
+@media (max-width: 768px) {
+  .categories ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+
 .main-content {
   display: flex;
   gap: 20px;
@@ -178,6 +186,7 @@
   .filters {
     width: 100%;
     margin-bottom: 20px;
+    box-sizing: border-box;
   }
 
   .product-card {
@@ -187,6 +196,22 @@
 
 @media (max-width: 480px) {
   .product-card {
+    width: 100%;
+  }
+
+  .filters {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .filters div {
+    width: 48%;
+    margin-bottom: 10px;
+  }
+
+  .filters button {
     width: 100%;
   }
 }

@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular/build:application",
           "options": {
-            "outputPath": "dist/online-restaurant/browser",
+            "outputPath": "docs",
             "browser": "src/main.ts",
             "polyfills": [
               "zone.js"
@@ -92,7 +92,7 @@
           "builder": "angular-cli-ghpages:deploy",
           "options": {
             "baseHref": "/finaluriproeqti/",
-            "dir": "dist/online-restaurant/browser"
+            "dir": "docs"
           }
         }
       }

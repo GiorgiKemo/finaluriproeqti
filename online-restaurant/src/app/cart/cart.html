@@ -1,0 +1,33 @@
+<div class="container">
+  <h2>Shopping Cart</h2>
+  <div *ngIf="cartItems.length === 0">
+    <p>Your cart is empty.</p>
+  </div>
+  <div *ngIf="cartItems.length > 0">
+    <table>
+      <thead>
+        <tr>
+          <th>Product</th>
+          <th>Price</th>
+          <th>Quantity</th>
+          <th>Total</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of cartItems">
+          <td>{{ item.name }}</td>
+          <td>{{ item.price | currency:'USD' }}</td>
+          <td>
+            <input type="number" [(ngModel)]="item.quantity" (change)="updateQuantity(item)" min="1">
+          </td>
+          <td>{{ (item.price * item.quantity) | currency:'USD' }}</td>
+          <td>
+            <button (click)="deleteItem(item)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <h3>Total: {{ totalPrice | currency:'USD' }}</h3>
+  </div>
+</div>

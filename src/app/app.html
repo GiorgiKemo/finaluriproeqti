@@ -1,0 +1,25 @@
+<header [ngClass]="{'scrolled': isScrolled}">
+  <div class="logo">Savory Bites</div>
+  <nav>
+    <ul>
+      <li><a routerLink="/dishes" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Home</a></li>
+      <li>
+        <a routerLink="/cart" routerLinkActive="active" class="cart-link">
+          <span>Cart</span>
+          <div class="cart-icon-container">
+            <img src="https://img.icons8.com/ios-filled/50/ffffff/shopping-cart.png" alt="Cart" class="cart-icon">
+            <span class="cart-count" *ngIf="cartItemCount$ | async as count">{{ count }}</span>
+          </div>
+        </a>
+      </li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+  <div class="hero">
+    <h1>Fast And Efficient, Online Ordering You Must Try.</h1>
+  </div>
+<router-outlet></router-outlet>
+<app-toast></app-toast>
+</main>

@@ -1,0 +1,54 @@
+<div class="container">
+  <div class="categories">
+    <h2>Categories</h2>
+    <ul>
+      <li (click)="resetFilters()" [class.active]="isAllCategoriesSelected()">All-Dishes</li>
+      <li *ngFor="let category of categories" (click)="filterByCategory(category.id)" [class.active]="selectedCategories[category.id]">
+        {{ category.name }}
+      </li>
+    </ul>
+  </div>
+
+  <div class="main-content">
+    <div class="filters">
+      <h3>Filter</h3>
+      <div>
+        <label for="spiciness">Spiciness: {{ spiciness === 0 ? 'Not Chosen' : spiciness }}</label>
+        <input type="range" id="spiciness" min="0" max="4" [(ngModel)]="spiciness" (change)="filterProducts()">
+      </div>
+      <div>
+        <input type="checkbox" id="nuts" [(ngModel)]="nuts" (change)="filterProducts()">
+        <label for="nuts">No Nuts</label>
+      </div>
+      <div>
+        <input type="checkbox" id="vegetarian" [(ngModel)]="vegetarian" (change)="filterProducts()">
+        <label for="vegetarian">Vegetarian Only</label>
+      </div>
+      <button (click)="resetFilters()">RESET</button>
+    </div>
+
+    <div class="products">
+      <div *ngFor="let product of filteredProducts" class="product-card">
+        <img [src]="product.image" [alt]="product.name">
+        <div class="product-info">
+          <h4>{{ product.name }}</h4>
+          <p class="spiciness">Spiciness: {{ product.spiciness }}</p>
+          <div class="attributes">
+            <span class="attribute nuts">
+              <input type="checkbox" id="nuts-{{product.id}}" [checked]="product.nuts" disabled>
+              <label for="nuts-{{product.id}}">Nuts</label>
+            </span>
+            <span class="attribute vegetarian">
+              <input type="checkbox" id="vegetarian-{{product.id}}" [checked]="product.vegetarian" disabled>
+              <label for="vegetarian-{{product.id}}">Vegetarian</label>
+            </span>
+          </div>
+          <div class="price-add">
+            <p class="price">{{ product.price | currency:'USD' }}</p>
+            <button (click)="addToCart(product)">Add to cart</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
